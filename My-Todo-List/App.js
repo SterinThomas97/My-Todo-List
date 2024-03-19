@@ -7,31 +7,45 @@ export default function App() {
         <Text style = {styles.heading}>My Todo List</Text>
       </View>
       <ScrollView style={styles.todoContainer}>
-        <Text style={styles.todoItem}>Buy milk</Text>
-        <Text style={styles.todoItem}>Buy bread</Text>
-        <Text style={styles.todoItem}>Buy eggs</Text>
-        <Text style={styles.todoItem}>Buy meat</Text>
-        <Text style={styles.todoItem}>Buy towel</Text>
-        <Text style={styles.todoItem}>Buy milk</Text>
-        <Text style={styles.todoItem}>Buy bread</Text>
-        <Text style={styles.todoItem}>Buy eggs</Text>
-        <Text style={styles.todoItem}>Buy meat</Text>
-        <Text style={styles.todoItem}>Buy towel</Text>
-        <Text style={styles.todoItem}>Buy milk</Text>
-        <Text style={styles.todoItem}>Buy bread</Text>
-        <Text style={styles.todoItem}>Buy eggs</Text>
-        <Text style={styles.todoItem}>Buy meat</Text>
-        <Text style={styles.todoItem}>Buy towel</Text>
-        <Text style={styles.todoItem}>Buy milk</Text>
-        <Text style={styles.todoItem}>Buy bread</Text>
-        <Text style={styles.todoItem}>Buy eggs</Text>
-        <Text style={styles.todoItem}>Buy meat</Text>
-        <Text style={styles.todoItem}>Buy towel</Text>
-        <Text style={styles.todoItem}>Buy milk</Text>
-        <Text style={styles.todoItem}>Buy bread</Text>
-        <Text style={styles.todoItem}>Buy eggs</Text>
-        <Text style={styles.todoItem}>Buy meat</Text>
-        <Text style={styles.todoItem}>Buy towel</Text>
+        <View style={styles.todoItem}>
+          <Text >Buy milk</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy bread</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy dress</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy mobile</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy groceries</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Do Assignment</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text>Call parents</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy food</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy headset</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy drinks</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy charger</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy charger</Text>
+        </View>
+        <View style={styles.todoItem}>
+          <Text >Buy charger</Text>
+        </View>
       </ScrollView>
       <View style={styles.addNewTodoContainer}>
         <Button title='Add New Todo'/>
@@ -57,19 +71,20 @@ const styles = StyleSheet.create({
     borderTopWidth: 2
   },
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: '#dfede7',
     alignItems: 'center',
     justifyContent: 'flex-start',
     borderBottomWidth : 3,
     borderBottomColor : 'black',
-    marginTop : 70,
-    paddingBottom: 20
+    marginTop : 60,
+    paddingBottom: 20,
+    paddingTop: 20
   },
   todoItem: {
-    backgroundColor: '#33F6FF',
-    padding: 5,
+    backgroundColor: '#6dd1fc',
+    padding: 15,
     margin: 5,
-    borderRadius: 2
+    borderRadius: 5
   },
   heading : {
     fontWeight : "bold",
