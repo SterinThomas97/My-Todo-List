@@ -6,13 +6,33 @@ export default function App() {
       <View style={styles.container}>
         <Text style = {styles.heading}>My Todo List</Text>
       </View>
-      <View style={styles.todoContainer}>
+      <ScrollView style={styles.todoContainer}>
         <Text style={styles.todoItem}>Buy milk</Text>
         <Text style={styles.todoItem}>Buy bread</Text>
         <Text style={styles.todoItem}>Buy eggs</Text>
         <Text style={styles.todoItem}>Buy meat</Text>
         <Text style={styles.todoItem}>Buy towel</Text>
-      </View>
+        <Text style={styles.todoItem}>Buy milk</Text>
+        <Text style={styles.todoItem}>Buy bread</Text>
+        <Text style={styles.todoItem}>Buy eggs</Text>
+        <Text style={styles.todoItem}>Buy meat</Text>
+        <Text style={styles.todoItem}>Buy towel</Text>
+        <Text style={styles.todoItem}>Buy milk</Text>
+        <Text style={styles.todoItem}>Buy bread</Text>
+        <Text style={styles.todoItem}>Buy eggs</Text>
+        <Text style={styles.todoItem}>Buy meat</Text>
+        <Text style={styles.todoItem}>Buy towel</Text>
+        <Text style={styles.todoItem}>Buy milk</Text>
+        <Text style={styles.todoItem}>Buy bread</Text>
+        <Text style={styles.todoItem}>Buy eggs</Text>
+        <Text style={styles.todoItem}>Buy meat</Text>
+        <Text style={styles.todoItem}>Buy towel</Text>
+        <Text style={styles.todoItem}>Buy milk</Text>
+        <Text style={styles.todoItem}>Buy bread</Text>
+        <Text style={styles.todoItem}>Buy eggs</Text>
+        <Text style={styles.todoItem}>Buy meat</Text>
+        <Text style={styles.todoItem}>Buy towel</Text>
+      </ScrollView>
       <View style={styles.addNewTodoContainer}>
         <Button title='Add New Todo'/>
       </View>
@@ -26,24 +46,24 @@ const styles = StyleSheet.create({
     flex: 1
   },
   todoContainer: {
-    flex: 25,
-    borderBottomColor : 'grey',
-    borderBottomWidth: 2
+    marginBottom: 5,
+    marginTop: 5
   },
   addNewTodoContainer: {
     marginBottom: 50,
     padding: 10,
     backgroundColor: '#33FF64',
+    borderTopColor: 'grey',
+    borderTopWidth: 2
   },
   container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
     borderBottomWidth : 3,
     borderBottomColor : 'black',
-    paddingTop : 70,
-    paddingBottom: 15
+    marginTop : 70,
+    paddingBottom: 20
   },
   todoItem: {
     backgroundColor: '#33F6FF',
