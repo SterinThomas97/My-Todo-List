@@ -59,6 +59,8 @@ const styles = StyleSheet.create({
       },
       todoContainer: {
         marginBottom: 5,
-        marginTop: 5
+        marginTop: 5,
+        borderBottomWidth: 1,
+        borderBottomColor: 'black'
       }
 })
