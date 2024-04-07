@@ -2,10 +2,10 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import {Ionicons} from "@expo/vector-icons";
 import colors from "../constants/colors";
 
-function AppButton({icon, iconColor, size, title, }) {
+function AppButton({icon, iconColor, size, title, onPress }) {
     return (
         <View style={styles.buttonContainer}>
-            <Pressable  style={({pressed}) => pressed && styles.pressed}>
+            <Pressable  onPress={onPress} style={({pressed}) => pressed && styles.pressed}>
                 <View style={styles.iconButtonContainer}>
                     <Ionicons name={icon} size={size} color={iconColor} />
                     <Text style={styles.buttonText}>{title}</Text>
@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     buttonContainer: {
         marginBottom: 50,
         padding: 10,
-        backgroundColor: colors.button
+        backgroundColor: colors.button,
+        borderRadius: 10
       },
       pressed: {
         opacity: 0.5
