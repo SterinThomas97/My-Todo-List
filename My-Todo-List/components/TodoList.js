@@ -1,50 +1,70 @@
-import { Text, View, ScrollView, StyleSheet } from "react-native";
+import { Text, View, ScrollView, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import colors from "../constants/colors";
+import { useEffect, useState } from "react";
+import { loadData } from "../model/data";
 
 function TodoList() {
 
+    const [data, setData] = useState([]);
+    const [expandedId, setExpandedId] = useState(null);
+
+    const toggleExpanded = (id) => {
+      console.log("fsvxzdv")
+      if(id === expandedId) {
+        setExpandedId(null);
+      } else {
+        setExpandedId(id);
+      }
+    };
+
+    useEffect(() => {
+      const firstLoad = async () => {
+        const todoData = await loadData();
+        if (todoData && todoData.length > 0) {
+          setData(todoData);
+        }
+      };
+      firstLoad();
+    },[]);
+
+    useEffect(() => {
+      const load = async () => {
+        const todoData = await loadData();
+        if (todoData) {
+          setData(todoData);
+        }
+      };
+      load();
+    },[data]);
+
+    const isExpanded = (id) => id === expandedId;
+
+    const display = ({item}) => (
+       <View style={styles.todoItem}>
+          <TouchableOpacity onPress={() => toggleExpanded(item.id)}>
+            <Text>{item.title}</Text>
+          
+          {
+            isExpanded(item.id) && (
+              <View>
+                <Text>{item.description}</Text>
+              </View>
+          )}
+          </TouchableOpacity>
+      </View>
+    );
+    
     return (
-        <ScrollView style={styles.todoContainer}>
-            <View style={styles.todoItem}>
-              <Text >Buy milk</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy bread</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy dress</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy mobile</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy groceries</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Do Assignment</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text>Call parents</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy food</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy headset</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy drinks</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy charger</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy charger</Text>
-            </View>
-            <View style={styles.todoItem}>
-              <Text >Buy charger</Text>
-            </View>
-          </ScrollView>
+          
+      <ScrollView style={styles.todoContainer}>
+           <FlatList
+            data={data}
+            renderItem={display}
+            keyExtractor={(item) => item.id}
+          />
+      </ScrollView>
+         
+          
     )
 }
 

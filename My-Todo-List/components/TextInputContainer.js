@@ -1,11 +1,11 @@
 import { View, Text, TextInput, StyleSheet } from "react-native";
 
-function TextInputContainer({text, isMultiline, numberOfLines}) {
+function TextInputContainer({text, isMultiline, numberOfLines,value, onChangeText, placeHolder}) {
     const style = (isMultiline === true ? styles.multilineInput : styles.input)
     return (
         <View style={styles.inputContainer}>
             <Text style={styles.inputTitle}>{text}</Text>
-            <TextInput multiline={isMultiline} numberOfLines={parseInt(numberOfLines)} style={style}/>
+            <TextInput placeholder={placeHolder} multiline={isMultiline} onChangeText={onChangeText} value={value} numberOfLines={parseInt(numberOfLines)} style={style}/>
         </View>
     );
 }
