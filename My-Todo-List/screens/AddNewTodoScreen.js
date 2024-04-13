@@ -27,7 +27,7 @@ function AddNewTodoScreen() {
               icon="backspace"
               iconColor="green"
               size={23}
-              title="Cancel"
+              title="Back"
               onPress={cancelButtonHandler}
             />
           </View>
