@@ -1,21 +1,12 @@
-import { Text, View, ScrollView, StyleSheet, FlatList, TouchableOpacity } from "react-native";
-import colors from "../constants/colors";
+import { Text, View, ScrollView, StyleSheet, FlatList, TouchableOpacity, Pressable } from "react-native";
+
 import { useEffect, useState } from "react";
 import { loadData } from "../model/data";
+import TodoItemIndividual from "./TodoItemIndividual";
 
 function TodoList() {
 
     const [data, setData] = useState([]);
-    const [expandedId, setExpandedId] = useState(null);
-
-    const toggleExpanded = (id) => {
-      console.log("fsvxzdv")
-      if(id === expandedId) {
-        setExpandedId(null);
-      } else {
-        setExpandedId(id);
-      }
-    };
 
     useEffect(() => {
       const firstLoad = async () => {
@@ -37,23 +28,13 @@ function TodoList() {
       load();
     },[data]);
 
-    const isExpanded = (id) => id === expandedId;
 
     const display = ({item}) => (
-       <View style={styles.todoItem}>
-          <TouchableOpacity onPress={() => toggleExpanded(item.id)}>
-            <Text>{item.title}</Text>
-          
-          {
-            isExpanded(item.id) && (
-              <View>
-                <Text>{item.description}</Text>
-              </View>
-          )}
-          </TouchableOpacity>
-      </View>
-    );
     
+      <TodoItemIndividual item={item}/>
+   
+     );
+
     return (
           
       <ScrollView style={styles.todoContainer}>
@@ -65,18 +46,13 @@ function TodoList() {
       </ScrollView>
          
           
-    )
+    );
 }
 
 export default TodoList;
 
 const styles = StyleSheet.create({
-    todoItem: {
-        backgroundColor: colors.todoItem,
-        padding: 15,
-        margin: 5,
-        borderRadius: 5
-      },
+
       todoContainer: {
         marginBottom: 5,
         marginTop: 5,

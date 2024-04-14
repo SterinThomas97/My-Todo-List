@@ -22,7 +22,7 @@ export default AppButton;
 const styles = StyleSheet.create({
     buttonContainer: {
         marginBottom: 50,
-        padding: 10,
+        padding: 5,
         backgroundColor: colors.button,
         borderRadius: 10
       },
