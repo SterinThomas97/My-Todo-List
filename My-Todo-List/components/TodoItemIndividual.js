@@ -25,6 +25,21 @@ function TodoItemIndividual({item, data, updateData}) {
         console.log("Error deleting item: ", error)
       }
     }
+
+    const updateTodoItemStatus = async(id) => {
+      try {
+        const existingData = await AsyncStorage.getItem(id);
+        if (existingData != null) {
+          const parsedExistingData = JSON.parse(existingData);
+          const updatedTodoItem = {
+            ...parsedExistingData, isFinished : true
+          }
+          await AsyncStorage.setItem(id, JSON.stringify(updatedTodoItem));
+        }
+      } catch (error) {
+        console.log('Error updating object:', error);
+      }
+    }
     return (
         <View style={styles.todoItem}>
           
@@ -40,7 +55,7 @@ function TodoItemIndividual({item, data, updateData}) {
               <View>
                 <Text>{item.description}</Text>
                 <View style={styles.deleteAndFinish}>
-                  <Icon icon={"cloud-done"} size={20} color={"green"} style={styles.deleteAndFinishInner}/>
+                 { !item.isFinished && (<Icon icon={"cloud-done"} size={20} color={"green"} style={styles.deleteAndFinishInner} onPress={() => updateTodoItemStatus(item.id)}/>)}
                   <Icon icon={"trash"} size={20} color={"red"} style={styles.deleteAndFinishInner} onPress={() => deleteTodoItem(item.id)}/>
                 </View>
               </View>
@@ -71,7 +86,7 @@ const styles = StyleSheet.create({
     
       deleteAndFinish: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center'
       },
 })
