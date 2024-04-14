@@ -3,14 +3,14 @@ import {Ionicons} from "@expo/vector-icons";
 import colors from "../constants/colors";
 import { useState } from "react";
 import Icon from "./Icon";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function TodoItemIndividual({item}) {
+function TodoItemIndividual({item, data, updateData}) {
 
     const isExpanded = (id) => id === expandedId;
     const [expandedId, setExpandedId] = useState(null);
-
+  
     const toggleExpanded = (id) => {
-        console.log("fsvxzdv")
         if(id === expandedId) {
           setExpandedId(null);
         } else {
@@ -18,8 +18,16 @@ function TodoItemIndividual({item}) {
         }
     };
     
+    const deleteTodoItem = async(id) => {
+      try {
+        await AsyncStorage.removeItem(id);
+      } catch (error) {
+        console.log("Error deleting item: ", error)
+      }
+    }
     return (
         <View style={styles.todoItem}>
+          
             <View style={styles.collapseItemIcon}>
               <Text>{item.title}</Text>
               <TouchableOpacity onPress={() => toggleExpanded(item.id)}>
@@ -33,7 +41,7 @@ function TodoItemIndividual({item}) {
                 <Text>{item.description}</Text>
                 <View style={styles.deleteAndFinish}>
                   <Icon icon={"cloud-done"} size={20} color={"green"} style={styles.deleteAndFinishInner}/>
-                  <Icon icon={"trash"} size={20} color={"red"} style={styles.deleteAndFinishInner}/>
+                  <Icon icon={"trash"} size={20} color={"red"} style={styles.deleteAndFinishInner} onPress={() => deleteTodoItem(item.id)}/>
                 </View>
               </View>
           )}

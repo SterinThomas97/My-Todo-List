@@ -28,20 +28,23 @@ function TodoList() {
       load();
     },[data]);
 
-
-    const display = ({item}) => (
-    
-      <TodoItemIndividual item={item}/>
+    function updateData(todoItems) {
+      setData(todoItems);
+    }
+    const display = ({item}) => {
+      if(item) {
+        return <TodoItemIndividual item={item} data={data} updateData={updateData}/>
+      }
    
-     );
+    }
 
     return (
-          
+
       <ScrollView style={styles.todoContainer}>
            <FlatList
             data={data}
             renderItem={display}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item?item.id:""}
           />
       </ScrollView>
          
@@ -52,7 +55,6 @@ function TodoList() {
 export default TodoList;
 
 const styles = StyleSheet.create({
-
       todoContainer: {
         marginBottom: 5,
         marginTop: 5,
