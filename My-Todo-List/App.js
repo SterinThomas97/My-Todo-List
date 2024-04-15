@@ -3,13 +3,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator} from '@react-navigation/native-stack';
 import TodoListDisplayScreen from './src/screens/TodoListDisplayScreen';
 import AddNewTodoScreen from './src/screens/AddNewTodoScreen';
+import colors from './src/constants/colors';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
-            contentStyle: { backgroundColor: '#f1f5f0' },
+            contentStyle: { backgroundColor: colors.appBackground },
           }}>
         <Stack.Screen name="TodoListDisplay" component={TodoListDisplayScreen} options={
           {
