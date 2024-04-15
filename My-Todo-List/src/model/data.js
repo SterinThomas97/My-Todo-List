@@ -32,3 +32,28 @@ export async function saveData(data) {
   }
   return true;
 };
+
+ // Function for deleting a todo item from Async storage.
+export async function deleteTodoItem(id) {
+  try {
+    await AsyncStorage.removeItem(id);
+  } catch (error) {
+    console.log("Error deleting item: ", error)
+  }
+}
+
+// Function for updating the status of a todo item in Async storage.
+export async function updateTodoItemStatus(id) {
+  try {
+    const existingData = await AsyncStorage.getItem(id);
+    if (existingData != null) {
+      const parsedExistingData = JSON.parse(existingData);
+      const updatedTodoItem = {
+        ...parsedExistingData, isFinished : true
+      }
+      await AsyncStorage.setItem(id, JSON.stringify(updatedTodoItem));
+    }
+  } catch (error) {
+    console.log('Error updating object:', error);
+  }
+}

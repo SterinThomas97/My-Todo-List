@@ -5,7 +5,7 @@ import {Ionicons} from "@expo/vector-icons";
 import colors from "../constants/colors";
 import { useState } from "react";
 import Icon from "./Icon";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { deleteTodoItem, updateTodoItemStatus } from "../model/data";
 
 function TodoItemIndividual({item, data, updateData}) {
 
@@ -21,30 +21,6 @@ function TodoItemIndividual({item, data, updateData}) {
         }
     };
     
-    // Function for deleting a todo item from Async storage.
-    const deleteTodoItem = async(id) => {
-      try {
-        await AsyncStorage.removeItem(id);
-      } catch (error) {
-        console.log("Error deleting item: ", error)
-      }
-    }
-
-    // Function for updating the status of a todo item in Async storage.
-    const updateTodoItemStatus = async(id) => {
-      try {
-        const existingData = await AsyncStorage.getItem(id);
-        if (existingData != null) {
-          const parsedExistingData = JSON.parse(existingData);
-          const updatedTodoItem = {
-            ...parsedExistingData, isFinished : true
-          }
-          await AsyncStorage.setItem(id, JSON.stringify(updatedTodoItem));
-        }
-      } catch (error) {
-        console.log('Error updating object:', error);
-      }
-    }
     return (
         <View style={styles.todoItem}>
           
