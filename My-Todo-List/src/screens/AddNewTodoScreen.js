@@ -27,9 +27,7 @@ function AddNewTodoScreen() {
 
     // Function for handling save functionality in Add Todo Item screen
     function saveButtonHandler() {
-      console.log(todoItem);
       const newTodoItem = new TodoItem(generateUniqueId(),todoItem.title, todoItem.description, false);
-      console.log(newTodoItem);
       const saved = saveData(newTodoItem);
       if (saved) {
         setTodoItem({});
@@ -108,7 +106,7 @@ const styles = StyleSheet.create({
       },
 
       button: {
-        margin: 55
+        margin: 65
       },
       
 });

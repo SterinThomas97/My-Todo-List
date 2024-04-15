@@ -42,13 +42,13 @@ function TodoList() {
 
     return (
 
-      <ScrollView style={styles.todoContainer}>
+      <View style={styles.todoContainer}>
            <FlatList
             data={data}
             renderItem={display}
             keyExtractor={(item) => item?item.id:""}
           />
-      </ScrollView>
+      </View>
          
           
     );
@@ -58,6 +58,7 @@ export default TodoList;
 
 const styles = StyleSheet.create({
       todoContainer: {
+        flex: 1,
         marginBottom: 5,
         marginTop: 5,
         borderBottomWidth: 1,
