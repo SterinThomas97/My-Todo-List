@@ -1,3 +1,5 @@
+//Component for handling each todo item that is displayed in the todo list in home screen.
+
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import {Ionicons} from "@expo/vector-icons";
 import colors from "../constants/colors";
@@ -10,6 +12,7 @@ function TodoItemIndividual({item, data, updateData}) {
     const isExpanded = (id) => id === expandedId;
     const [expandedId, setExpandedId] = useState(null);
   
+    // Function for setting the id of expanded todo item
     const toggleExpanded = (id) => {
         if(id === expandedId) {
           setExpandedId(null);
@@ -18,6 +21,7 @@ function TodoItemIndividual({item, data, updateData}) {
         }
     };
     
+    // Function for deleting a todo item from Async storage.
     const deleteTodoItem = async(id) => {
       try {
         await AsyncStorage.removeItem(id);
@@ -26,6 +30,7 @@ function TodoItemIndividual({item, data, updateData}) {
       }
     }
 
+    // Function for updating the status of a todo item in Async storage.
     const updateTodoItemStatus = async(id) => {
       try {
         const existingData = await AsyncStorage.getItem(id);

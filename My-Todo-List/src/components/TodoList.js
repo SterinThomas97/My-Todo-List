@@ -1,3 +1,5 @@
+// Component for displaying the todo items in the home screen
+
 import { Text, View, ScrollView, StyleSheet, FlatList, TouchableOpacity, Pressable } from "react-native";
 
 import { useEffect, useState } from "react";

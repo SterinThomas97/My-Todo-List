@@ -1,3 +1,5 @@
+// This component is for the Home Screen
+
 import { View, StyleSheet } from 'react-native';
 import AppButton from '../components/AppButton';
 import TodoList from '../components/TodoList';

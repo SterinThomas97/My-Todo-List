@@ -1,3 +1,5 @@
+// This component is for defining the colour values
+
 const colors = {
 
     header: '#dfede7',

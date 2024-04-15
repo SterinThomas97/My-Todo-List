@@ -1,3 +1,4 @@
+//Component for headers in the app
 
 import { Text, View, StyleSheet } from "react-native";
 import colors from "../constants/colors";

@@ -1,3 +1,5 @@
+// Component for handling the input fields in the Add New Todo screen.
+
 import { View, Text, TextInput, StyleSheet } from "react-native";
 
 function TextInputContainer({text, isMultiline, numberOfLines,value, onChangeText, placeHolder}) {

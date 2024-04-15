@@ -1,3 +1,5 @@
+// Component for buttons in the app
+
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import {Ionicons} from "@expo/vector-icons";
 import colors from "../constants/colors";
