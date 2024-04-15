@@ -5,7 +5,7 @@ import colors from "../constants/colors";
 function AppButton({icon, iconColor, size, title, onPress, isDisabled }) {
     return (
         <View style={styles.buttonContainer}>
-            <Pressable  disabled={isDisabled} onPress={onPress} style={({pressed}) => pressed && styles.pressed}>
+            <Pressable  disabled={isDisabled} onPress={onPress} style={({pressed}) => [pressed && styles.pressed, isDisabled && styles.disabledButton]}>
                 <View style={styles.iconButtonContainer}>
                     <Ionicons name={icon} size={size} color={iconColor} />
                     <Text style={styles.buttonText}>{title}</Text>
@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
       },
       pressed: {
         opacity: 0.5
+      },
+      disabledButton: {
+        opacity: 0.3
       },
       iconButtonContainer: {
         flexDirection: 'row',
