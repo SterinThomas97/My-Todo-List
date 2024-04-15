@@ -1,5 +1,5 @@
 
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 import AppButton from '../components/AppButton';
 import Header from '../components/Header';
 import { useNavigation } from "@react-navigation/native";
@@ -29,7 +29,8 @@ function AddNewTodoScreen() {
       console.log(newTodoItem);
       const saved = saveData(newTodoItem);
       if (saved) {
-        navigation.navigate("TodoListDisplay");
+        setTodoItem({});
+        Alert.alert("Success", "Todo Added Successfully");
       }
     }
 
