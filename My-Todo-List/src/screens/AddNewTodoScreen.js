@@ -35,19 +35,29 @@ function AddNewTodoScreen() {
     }
 
     const changeTitle = (val) => {
-        const data = {...todoItem, title:val};
-        setTodoItem(data);
+      const data = {...todoItem, title:val};
+      setTodoItem(data);
+      console.log(Object.keys({...todoItem}));
     }
 
     const changeDescription = (val) => {
       const data = {...todoItem, description:val};
       setTodoItem(data);
+      console.log(Object.keys({...todoItem}));
     }
     return (
       <View style={styles.appContainer}>
         <Header title="Add New Todo" />
-        <TextInputContainer placeHolder="Enter Title" onChangeText={changeTitle} text="Title"  value={todoItem?.title} isMultiline={false} />
         <TextInputContainer
+          placeHolder="Enter Title"
+          onChangeText={changeTitle}
+          text="Title"
+          value={todoItem?.title}
+          isMultiline={false}
+        />
+
+        <TextInputContainer
+          placeHolder="Enter Description"
           text="Description"
           isMultiline={true}
           numberOfLines="4"
@@ -66,7 +76,14 @@ function AddNewTodoScreen() {
             />
           </View>
           <View style={styles.button}>
-            <AppButton icon="save" iconColor="green" size={23} title="Save" onPress={saveButtonHandler}/>
+            <AppButton
+              icon="save"
+              iconColor="green"
+              size={23}
+              title="Save"
+              isDisabled={Object.keys({...todoItem}).length == 0 || {...todoItem}.title === "" || {...todoItem}.description === "" || {...todoItem}.title === undefined || {...todoItem}.description === undefined}
+              onPress={saveButtonHandler}
+            />
           </View>
         </View>
       </View>
