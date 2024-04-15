@@ -1,8 +1,8 @@
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator} from '@react-navigation/native-stack';
-import TodoListDisplayScreen from './screens/TodoListDisplayScreen';
-import AddNewTodoScreen from './screens/AddNewTodoScreen';
+import TodoListDisplayScreen from './src/screens/TodoListDisplayScreen';
+import AddNewTodoScreen from './src/screens/AddNewTodoScreen';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
