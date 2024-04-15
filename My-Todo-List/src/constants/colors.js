@@ -4,7 +4,8 @@ const colors = {
 
     header: '#dfede7',
     button: '#33FF64',
-    todoItem: '#6dd1fc'
+    todoItem: '#6dd1fc',
+    todoItemFinished: '#f2bcae'
 };
 
 export default colors;

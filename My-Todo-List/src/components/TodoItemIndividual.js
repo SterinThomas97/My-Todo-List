@@ -22,7 +22,7 @@ function TodoItemIndividual({item, data, updateData}) {
     };
     
     return (
-        <View style={styles.todoItem}>
+        <View style={(item.isFinished ? styles.todoItemFinished : styles.todoItem)}>
           
             <View style={styles.collapseItemIcon}>
               <Text>{item.title}</Text>
@@ -51,6 +51,12 @@ export default TodoItemIndividual;
 const styles = StyleSheet.create({
     todoItem: {
         backgroundColor: colors.todoItem,
+        padding: 15,
+        margin: 5,
+        borderRadius: 5
+      },
+      todoItemFinished: {
+        backgroundColor: colors.todoItemFinished,
         padding: 15,
         margin: 5,
         borderRadius: 5
